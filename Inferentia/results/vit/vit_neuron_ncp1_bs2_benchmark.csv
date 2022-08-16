@@ -1,0 +1,5 @@
+model_name,n_models,workers_per_model,pipeline_size,batch_size,throughput_avg,throughput_peak,latency_ms_p0,latency_ms_p50,latency_ms_p90,latency_ms_p95,latency_ms_p99,latency_ms_p100,cpu_avg_percent,cpu_percent_p50,mem_avg_percent,mem_percent_p50,e2e_avg_ms,infer_avg_ms,total_infs,total_s,performance_level,model_filename,device_type,instance_type,cost_per_1m_inf
+vit_neuron_ncp1_bs2.pt,1,1,1,2,151.333,152.0,12.915,13.205,13.37,13.387,13.411,14.253,4.126,1.5,10.667,10.8,13.208,13.2,17886,120.0,3,vit_neuron_ncp1_bs2.pt,neuron,inf1.2xlarge,0.664
+vit_neuron_ncp1_bs2.pt,4,1,1,2,434.137,438.0,13.952,18.389,18.598,18.748,19.188,20.539,16.819,4.9,17.222,17.8,18.414,18.404,51176,120.01,3,vit_neuron_ncp1_bs2.pt,neuron,inf1.2xlarge,0.232
+vit_neuron_ncp1_bs2.pt,1,2,1,2,159.966,160.0,14.004,24.995,25.033,25.044,25.064,26.772,4.12,2.3,10.7,10.8,24.995,24.986,18944,120.02,3,vit_neuron_ncp1_bs2.pt,neuron,inf1.2xlarge,0.629
+vit_neuron_ncp1_bs2.pt,4,2,1,2,440.051,444.0,14.292,36.361,36.541,36.567,36.67,38.627,16.973,8.2,17.267,17.8,36.344,36.334,52026,120.03,3,vit_neuron_ncp1_bs2.pt,neuron,inf1.2xlarge,0.229
