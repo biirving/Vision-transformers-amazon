@@ -28,8 +28,12 @@ from pathlib import Path
 import os
 from os import listdir
 
-feature_extractor = BeitFeatureExtractor.from_pretrained("microsoft/beit-base-patch16-224")
+"""
+This file is for measuring the accuracy of the models on GPU. Select which model you wish to measure, and run it on the Imagenet dataset.
+"""
 model = BeitForImageClassification.from_pretrained("microsoft/beit-base-patch16-224")
+#model = ViTForImageClassification.from_pretrained("google/vit-base-patch16-224")
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
@@ -37,8 +41,10 @@ model.to(device)
 # data preparation
 
 
-# Labels
-text_file = open("/home/ubuntu/gpuin/val_map.txt", "r")
+# Set filepath based on where you store the text file for the Imagenet dataset, which will contain 
+text_file = open("your-file-path", "r")
+
+
 labels = text_file.readlines()
 labels_final = []
 for l in labels:
@@ -71,7 +77,8 @@ def getDigits(image_index):
 
 # Validation Input
 for x in range(num_images):
-    img =  read_image('/home/ubuntu/gpuin/imageNetFinal/ILSVRC2012_val_' + getDigits(image_index) + '.JPEG')
+    # Set the file path here to where you have stored the imagenet validation set
+    img =  read_image('your file path to the imagenet validation set'+'/ILSVRC2012_val_' + getDigits(image_index) + '.JPEG')
     toAdd = my_transforms(img)
     toAdd = toAdd[None, :, :, :]
     if(toAdd.shape != torch.Size([1, 3, 224, 224])):
