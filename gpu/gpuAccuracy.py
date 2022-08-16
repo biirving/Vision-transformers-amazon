@@ -52,16 +52,13 @@ for l in labels:
 
 text_file.close()
 
-
-
 my_transforms = transforms.Compose([
 transforms.ToPILImage(),                                                                                                                                                                                                   
 transforms.Resize((224, 224)),                                                                                                  
 transforms.ToTensor()                                                                                                           
 ])
 
-
-huh = []
+images_for_input = []
 num_images = 10000
 
 image_index = 1
@@ -80,10 +77,9 @@ for x in range(num_images):
     toAdd = my_transforms(img)
     toAdd = toAdd[None, :, :, :]
     if(toAdd.shape != torch.Size([1, 3, 224, 224])):
-        greyscale.append(image_index)
         toAdd = repeat(toAdd, 'b c h w -> b (3 c) h w')
     toAdd = toAdd.to(device)
-    huh.append(toAdd)
+    images_for_input.append(toAdd)
     image_index+=1
 
 
@@ -93,10 +89,10 @@ tot = 0
 correct = 0
 index = 0
 print("Evaluation begins")
-for m in range(len(huh)):
-    woah = torch.max(model(huh[m]).logits, dim = -1).indices
+for m in range(len(images_for_input)):
+    prediction = torch.max(model(images_for_input[m]).logits, dim = -1).indices
     print(index)
-    if(woah[0].item() == labels_final[index]):
+    if(prediction[0].item() == labels_final[index]):
         correct += 1
     tot += 1
     index += 1
