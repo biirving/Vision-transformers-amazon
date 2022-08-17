@@ -35,3 +35,4 @@ python vitBenchmark.py
 python inferentiaAccuracy.py 
 
 
+To measure in parallel on GPU, there is no compilation required. To benchmark, run your selected file from within the gpuBenchmarkScripts folder. Then insert your desired filepath into the gpuAccuracy.py folder and run it. 
