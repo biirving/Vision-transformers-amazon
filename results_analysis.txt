@@ -45,7 +45,9 @@ BEiT:
  For BEiT, the lowest latency was also with a batchsize 1 and a pipline size of 1 (utilizing 1 Neuron core). 
   The p90 statistic was 37.568 ms. The lowest p90 latency was lower on the G5 instance, with batch size 1 achieving 8.86 ms. 
   The Inferentia statistic lagged behind considerably for the BEiT model, perhaps in the masked image modeling process (the primary implementation 
-  difference from the ViT model). 
+  difference from the ViT model). To investigate this further, a deeper look into the model structure is required, and perhaps some assistance 
+  from the compiler team to find the operations that are putting large loads on the system, and refactoring the model to remove/refactor these
+  burdensome components. 
   
   In terms of maximum throughput, on Inferentia the BEiT using 1 Neuroncore with a batchsize of 4 achieved an average throughput of 154.296 
   operations in 1 second. On GPU, the largest batch size that was achievable without memory allocation failures was 128, which had a throughput 
