@@ -20,8 +20,13 @@ ViT:
   average of 375.89 operations in one second. Thus, in terms of operations per second, the parallelization capabilities of the Inf.2x instance shine through, with 160 more operations per second in the best run than the best throughput on the G5. As such, ViT model achieved a lower cost per 1m on Inferentia than on the G5 instance, with 0.19$ on the Inf.2x instance and $0.74 on the G5 instance. G5 is 75% more expensive. Thus, working with these
   statistics alone, Inferentia appears to be a competitive option for the deployment of the ViT model.
   
-  The ViT was pretrained on the ImageNet dataset. Thus, to test the accuracy of the models on Inferentia and the G5 instance, the validation set from
-  ImageNet was used. Both runs used batch sizes of 1. ViT achieved an accuracy of 76.87% on the Inf.2x instance. To account for the loss in accuracy due to optimization, the accuracy test was also run on a model that had been compiled with --fast-math = none (optimizations disregarded). This model achieved a slightly better accuracy of 76.92%. These optimizations had significant effect on the latency, raising the p90 statistic to 15.4 ms (vs 9.007) for batch size 1 model. The option was also used with the maximum throughput model, and the throughput dropped from 536.18 to 265.85. The slight bump in accuracy does not appear to be worth the loss in efficiency, which is quite substantial for throughput and latency.
+  The ViT was pretrained on the ImageNet dataset. 
+  Thus, to test the accuracy of the models on Inferentia and the G5 instance, the validation set from
+  ImageNet was used. Both runs used batch sizes of 1. 
+  ViT achieved an accuracy of 76.87% on the Inf.2x instance. To account for the loss in accuracy due to optimization, the accuracy test was also run on a model that had been compiled with --fast-math = none (optimizations disregarded). 
+  This model achieved a slightly better accuracy of 76.92%. 
+  These optimizations had significant effect on the latency, raising the p90 statistic to 15.4 ms (vs 9.007) for batch size 1 model. The option was also used with the maximum throughput model, and the throughput dropped from 536.18 to 265.85. 
+  The slight bump in accuracy does not appear to be worth the loss in efficiency, which is quite substantial for throughput and latency.
   
   On the G5.xl, ViT achieved accuracy of 79.93%. So, the gpu run had more precise results, but at high cost. A 75% price difference makes the 3.06% accuracy difference look negligible. In terms of time to complete the accuracy runs themselves, the GPU run took 53 seconds, while the Inf.2x large run took 37 seconds. 
   
