@@ -42,9 +42,18 @@ BEiT:
   throughput.
   However, the BEiT model did achieve a lower cost per 1m on Inferentia than on the G5 instance, with 0.65$ on the Inf.2x instance and $0.78 on the G5 instance. 
   
-  Similarly to the ViT model, BEiT was pretrained on the ImageNet dataset. Thus, to test the accuracy of the models on Inferentia and the G5 instance, the validation set from ImageNet was used. Both runs used batch sizes of 1 for maximum precision. ViT achieved an accuracy of 83.95% on the Inf.2x instance. The accuracy test was also run on a model that had been compiled with --fast-math = none (optimizations disregarded). This model achieved a slightly better accuracy of %83.97. These optimizations had significant effect on the latency, raising the p90 statistic to 49 ms (vs 37.568) for batch size 1 model. The option was also used with the maximum throughput model, and the throughput dropped from 154.296 to 120. The slight bump in accuracy does not appear to be worth the loss in efficiency, which is quite substantial for throughput and latency.
+  Similarly to the ViT model, BEiT was pretrained on the ImageNet dataset. 
+  Thus, to test the accuracy of the models on Inferentia and the G5 instance, the validation set from ImageNet was used.
+  Both runs used batch sizes of 1 for maximum precision. 
+  ViT achieved an accuracy of 83.95% on the Inf.2x instance. The accuracy test was also run on a model that had been compiled with --fast-math = none (optimizations disregarded). 
+  This model achieved a slightly better accuracy of %83.97. 
+  These optimizations had significant effect on the latency, raising the p90 statistic to 49 ms (vs 37.568) for batch size 1 model.
+  The option was also used with the maximum throughput model, and the throughput dropped from 154.296 to 120. 
+  The slight bump in accuracy does not appear to be worth the loss in efficiency, which is quite substantial for throughput and latency.
   
-  On the G5.xl, BEiT achieved accuracy of 83.96%. Thus accuracies were essentially the same, with Inferentia costing $0.13 per 1 million inferences. Thus, for BEiT, Inferentia is a competitive option. The G5 instance was more time efficient, completing the accuracay run in 56 seconds, while the Inf.2x large run took 129 seconds. 
+  On the G5.xl, BEiT achieved accuracy of 83.96%. 
+  Thus accuracies were essentially the same, with Inferentia costing $0.13 per 1 million inferences. 
+  Thus, for BEiT, Inferentia is a competitive option. The G5 instance was more time efficient, completing the accuracay run in 56 seconds, while the Inf.2x large run took 129 seconds. 
   
   Comparing the BEiT another industry-relevant model, the Resnet50 architecture was also compiled and ran on the G5 instance and on the Inf.2x instance.
   The accuracy achieved on the ImageNet validation by Resnet50 on Inferentia was 76.38%, and on the G5 instance an accuracy of 76.72%. So The BEiT model was more precise both on Inferentia and GPU. 
