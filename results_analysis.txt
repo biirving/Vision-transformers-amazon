@@ -74,7 +74,7 @@ BEiT:
   Comparing the BEiT another industry-relevant model, the Resnet50 architecture was also compiled and ran on the G5 instance and on the Inf.2x instance.
   The accuracy achieved on the ImageNet validation by Resnet50 on Inferentia was 76.38%, and on the G5 instance an accuracy of 76.72%. So The BEiT model was more precise both on Inferentia and GPU. 
   
-  In the original paper, the recorded top-1 accuracy on the ImageNet data set was 83.2%. 
+  In the original paper, BEiT recorded a top-1 accuracy of 83.2% on the ImageNet dataset. 
 
 LayoutLMv3: 
 
