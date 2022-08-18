@@ -1,0 +1,22 @@
+Results Analysis for Inferentia and GPU experiments:
+
+For the runs on Inferentia, the models were compiled on an Inf.2x large instance (4 Neuron cores) with the Ubuntu 20.04 deep learning AMI, using Pytorch version 1.11.0, 
+and the Neuron version 1.11.0.2.3.0.0. The Neuron driver version was 1.19.3. 
+  
+The GPU runs were hosted on a G5.xl instance. The Pytorch version was 1.13.0, tracking the nightly binaries for cuda 11.6. As described in the readme,
+one can install using the following command:
+
+pip install torch --pre --extra-index-url https://download.pytorch.org/whl/nightly/cu116
+
+ViT:
+
+  On Inferentia, the lowest latency predictably occurred with a batchsize and a pipline size of 1 (utilizing 1 Neuron core). The p90 statistic was 9.007 ms.
+ 
+
+BEiT:
+
+LayoutLMv3: 
+
+DETR (not compiled)
+
+TimeSformer (not compiled)
