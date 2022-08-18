@@ -16,8 +16,12 @@ ViT:
   Even so, the Inferentia statistic in this regard was comparable, lagging behind by less than 2 ms. 
   
   In terms of maximum throughput, on Inferentia the ViT using 1 Neuroncore with a batchsize of 3 achieved an average throughput of 536.718 
-  operations in 1 second. On GPU, the largest batch size that was achievable without memory allocation failures was 128, which had a throughput 
-  average of 375.89 operations in one second. Thus, in terms of operations per second, the parallelization capabilities of the Inf.2x instance shine through, with 160 more operations per second in the best run than the best throughput on the G5. As such, ViT model achieved a lower cost per 1m on Inferentia than on the G5 instance, with 0.19$ on the Inf.2x instance and $0.74 on the G5 instance. G5 is 75% more expensive. Thus, working with these
+  operations in 1 second. 
+  On GPU, the largest batch size that was achievable without memory allocation failures was 128, which had a throughput 
+  average of 375.89 operations in one second. 
+  Thus, in terms of operations per second, the parallelization capabilities of the Inf.2x instance shine through, with 160 more operations per second in the best run than the best throughput on the G5. 
+  As such, ViT model achieved a lower cost per 1m on Inferentia than on the G5 instance, with 0.19$ on the Inf.2x instance and $0.74 on the G5 instance. 
+  G5 is 75% more expensive. Thus, working with these
   statistics alone, Inferentia appears to be a competitive option for the deployment of the ViT model.
   
   The ViT was pretrained on the ImageNet dataset. 
