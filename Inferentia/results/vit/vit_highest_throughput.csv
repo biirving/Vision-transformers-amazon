@@ -1,0 +1,11 @@
+,model_name,n_models,workers_per_model,pipeline_size,batch_size,throughput_avg,throughput_peak,latency_ms_p0,latency_ms_p50,latency_ms_p90,latency_ms_p95,latency_ms_p99,latency_ms_p100,cpu_avg_percent,cpu_percent_p50,mem_avg_percent,mem_percent_p50,e2e_avg_ms,infer_avg_ms,total_infs,total_s,performance_level,model_filename,device_type,instance_type,cost_per_1m_inf
+3,vit_neuron_ncp1_bs3.pt,4,2,1,3,536.718,540.0,21.703,44.711,44.831,44.869,44.956,46.995,18.354,8.9,17.433,18.1,44.699,44.685,63387,120.04,3,vit_neuron_ncp1_bs3.pt,neuron,inf1.2xlarge,0.187
+1,vit_neuron_ncp1_bs3.pt,4,1,1,3,515.692,525.0,19.974,23.232,23.466,23.575,23.864,25.098,16.386,5.4,17.537,18.0,23.257,23.245,60846,120.01,3,vit_neuron_ncp1_bs3.pt,neuron,inf1.2xlarge,0.195
+3,vit_neuron_ncp1_bs4.pt,4,2,1,4,511.043,512.0,32.332,62.62,62.749,62.783,62.857,65.972,18.445,8.6,17.733,18.6,62.604,62.592,60336,120.05,3,vit_neuron_ncp1_bs4.pt,neuron,inf1.2xlarge,0.197
+3,vit_neuron_ncp1_bs5.pt,4,2,1,5,502.949,510.0,38.698,79.44,79.804,79.972,80.726,82.293,18.607,8.6,18.27,18.9,79.491,79.478,59390,120.07,3,vit_neuron_ncp1_bs5.pt,neuron,inf1.2xlarge,0.2
+1,vit_neuron_ncp1_bs4.pt,4,1,1,4,494.496,500.0,29.167,32.301,32.645,32.822,33.182,34.685,16.358,5.2,17.69,18.5,32.342,32.331,58368,120.02,3,vit_neuron_ncp1_bs4.pt,neuron,inf1.2xlarge,0.203
+3,vit_neuron_ncp1_bs7.pt,4,2,1,7,493.741,504.0,52.52,113.282,114.709,115.25,116.093,117.51,20.857,8.9,18.916,19.5,113.375,113.362,58170,120.1,3,vit_neuron_ncp1_bs7.pt,neuron,inf1.2xlarge,0.204
+1,vit_neuron_ncp1_bs5.pt,4,1,1,5,482.991,495.0,38.671,41.311,41.896,42.179,42.871,44.574,16.604,5.2,18.296,18.9,41.391,41.379,56985,120.03,3,vit_neuron_ncp1_bs5.pt,neuron,inf1.2xlarge,0.208
+1,vit_neuron_ncp1_bs7.pt,4,1,1,7,477.931,497.0,56.73,58.408,59.574,59.983,60.708,63.879,17.48,5.4,19.071,19.4,58.588,58.576,56343,120.06,3,vit_neuron_ncp1_bs7.pt,neuron,inf1.2xlarge,0.21
+3,vit_neuron_ncp1_bs8.pt,4,2,1,8,462.496,472.0,60.477,138.344,138.572,138.656,138.817,143.933,19.774,8.4,19.67,20.2,138.292,138.279,54544,120.13,3,vit_neuron_ncp1_bs8.pt,neuron,inf1.2xlarge,0.217
+1,vit_neuron_ncp1_bs8.pt,4,1,1,8,448.957,456.0,59.727,71.268,71.461,71.516,71.631,75.493,18.574,5.2,19.601,20.2,71.237,71.224,52872,120.06,3,vit_neuron_ncp1_bs8.pt,neuron,inf1.2xlarge,0.224
