@@ -32,7 +32,9 @@ ViT:
   These optimizations had significant effect on the latency, raising the p90 statistic to 15.4 ms (vs 9.007) for batch size 1 model. The option was also used with the maximum throughput model, and the throughput dropped from 536.18 to 265.85. 
   The slight bump in accuracy does not appear to be worth the loss in efficiency, which is quite substantial for throughput and latency.
   
-  On the G5.xl, ViT achieved accuracy of 79.93%. So, the gpu run had more precise results, but at high cost. A 75% price difference makes the 3.06% accuracy difference look negligible. In terms of time to complete the accuracy runs themselves, the GPU run took 53 seconds, while the Inf.2x large run took 37 seconds. 
+  On the G5.xl, ViT achieved accuracy of 79.93%. So, the gpu run had more precise results, but at high cost. 
+  A 75% price difference makes the 3.06% accuracy difference look negligible. 
+  In terms of time to complete the accuracy runs themselves, the GPU run took 53 seconds, while the Inf.2x large run took 37 seconds. 
   
   Comparing the ViT another industry-relevant model, the Resnet50 architecture was also compiled and ran on the G5 instance and on the Inf.2x instance.
   The accuracy achieved on the ImageNet validation by Resnet50 on Inferentia was 76.38%, and on the G5 instance an accuracy of 76.72%. So The ViT model was more precise both on Inferentia and GPU. 
