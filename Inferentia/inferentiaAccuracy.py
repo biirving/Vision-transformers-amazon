@@ -58,7 +58,7 @@ transforms.ToTensor()
 ])
 
 
-huh = []
+all_image_inputs = []
 num_images = 10000
 
 image_index = 1
@@ -86,7 +86,7 @@ for x in range(num_images):
     if(toAdd.shape != torch.Size([1, 3, 224, 224])):
         greyscale.append(image_index)
         toAdd = repeat(toAdd, 'b c h w -> b (3 c) h w')
-    huh.append(toAdd)
+    all_image_inputs.append(toAdd)
     image_index+=1
 
 model.eval()
@@ -97,9 +97,9 @@ index = 0
 print("Evaluation begins")
 for m in range(len(huh)):
 
-    woah = torch.max(model(huh[m])['logits'], dim = -1).indices
+    max_index = torch.max(model(huh[m])['logits'], dim = -1).indices
     print(index)
-    if(woah[0].item() == labels_final[index]):
+    if(max_index[0].item() == labels_final[index]):
         correct += 1
     tot += 1
     index += 1
