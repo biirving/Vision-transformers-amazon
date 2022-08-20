@@ -77,6 +77,7 @@ BEiT:
   In the original paper, BEiT recorded a top-1 accuracy of 83.2% on the ImageNet dataset. 
 
 LayoutLMv3: 
+  (model compiles, with serious amounts of fragmentation)
 
 
 
