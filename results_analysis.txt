@@ -78,7 +78,19 @@ BEiT:
 
 LayoutLMv3: 
   (model compiles, with serious amounts of fragmentation)
-
+  
+  The model does compile with the Neuron Trace call, but it is very fragmented. 
+  The model does not compile naturally due to the shape of the inputs in the Hugging Face model. 
+  https://huggingface.co/docs/transformers/model_doc/layoutlmv3
+  
+  A functional wrapper was implemented to allow the model to compile, which involved breaking apart a dictionary input. 
+  In the initial compile with the functional wrapper, there were 3 unsupported operations, amax, embedding, and repeat. As such, the model was very fragmented, with 15 recursive script modules. Predictably, when benchmarking the initial model, the latency and throughput were abysmal. The initial model achieved a p90 latency of 283.6 ms, with batch size and a pipeline size of 1. The highest average throughput was 9.829 operations per second, with a pipeline size of 1 and a batch size of 2. The batch size of 2 was the largest model that was able to compile without memory allocation errors. The highest throughput achieved a cost per 1m instances of $10.23. 
+  
+  Upon further investigation, the embdedding operation is supported by Inferentia. It can be forced onto the accelerator. When compiled with the embedding operation forced onto the accelerator, there were only 13 recursive script modules. The affect of this recompilation on the efficiency of the model was relatively minimal. The lowest p90 latency was 270.339 ms, and the highest throughput was 9.329 operations per second (actually less efficient). The lowest cost per 1m instances was $10.88. The latency did decrease, but the throughput and cost per 1m instances had no positive improvement. The decrease in performance could have been due to a variety of factors, but it was most likely due to outlying problems with the compilation rather than the decreased fragmentation of the model. So the majority of the issues lie with the other two operations, amax and repeat specifically. A ticket has been opened for the Kaena compiler team referring to these issues.
+  
+  To get a better idea of the idealized performance of the model, the experiments were also run on GPU.
+  
+  (compare to GPU)
 
 
 DETR (not compiled)
