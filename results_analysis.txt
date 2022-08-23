@@ -88,9 +88,7 @@ LayoutLMv3:
   
   Upon further investigation, the embdedding operation is supported by Inferentia. It can be forced onto the accelerator. When compiled with the embedding operation forced onto the accelerator, there were only 13 recursive script modules. The affect of this recompilation on the efficiency of the model was relatively minimal. The lowest p90 latency was 270.339 ms, and the highest throughput was 9.329 operations per second (actually less efficient). The lowest cost per 1m instances was $10.88. The latency did decrease, but the throughput and cost per 1m instances had no positive improvement. The decrease in performance could have been due to a variety of factors, but it was most likely due to outlying problems with the compilation rather than the decreased fragmentation of the model. So the majority of the issues lie with the other two operations, amax and repeat specifically. A ticket has been opened for the Kaena compiler team referring to these issues.
   
-  To get a better idea of the idealized performance of the model, the experiments were also run on GPU.
-  
-  (compare to GPU)
+  To get a better idea of the idealized performance of the model, the experiments were also run on GPU. The lowest p_90 latency achieved was 15.08 ms, and the highest throughput was 87.08. The cost per 1m instances was $3.21. There was a huge performance dropoff on Inferentia due to the model fragmentation, which will hopefully be addressed by the compiler team. 
 
 
 DETR (not compiled)
