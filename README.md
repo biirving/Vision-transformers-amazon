@@ -16,8 +16,9 @@ It is reccommended to create a new virtual environment, and install the requirem
 pip -r requirements_gpu.txt
 
 This command will install a compatible pytorch version. This command has to be run separately.
+`
 pip install torch --pre --extra-index-url https://download.pytorch.org/whl/nightly/cu116
-
+`
 In the Inferentia folder, there is an example jupyter notebook which runs through the scripts for BEiT. The process can be emulated by running the files individually within the environment. There are no example notebooks for LayoutLMv3 or ViT, but there are files available that have to be run separately.
 
 To run the files separately to compile, measure, and benchmark on Inferentia:
